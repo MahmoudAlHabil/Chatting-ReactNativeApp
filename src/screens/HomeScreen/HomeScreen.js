@@ -1,6 +1,6 @@
 import {View, Image, Text} from 'react-native';
-import React from 'react'
-import styles from './styles'
+import React from 'react';
+import styles from './styles';
 const img = require('../../utils/images/girl.jpg');
 
 const HomeScreen = () => {
@@ -11,7 +11,7 @@ const HomeScreen = () => {
         <Text>Chat</Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;
