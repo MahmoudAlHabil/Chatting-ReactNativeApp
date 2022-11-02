@@ -14,6 +14,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-Chatting-ChattingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Chatting-ChattingTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B46C76226CAB4C6D82DED413 /* AvenirNextLTProBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 99B393F21FCE46AE895E57B0 /* AvenirNextLTProBold.otf */; };
+		5B0F8D11BD8C41DF98A1DA16 /* AvenirNextLTProDemi.otf in Resources */ = {isa = PBXBuildFile; fileRef = B66B3EACA91144FB86515311 /* AvenirNextLTProDemi.otf */; };
+		41878F49B6764B26953A3050 /* AvenirNextLTProMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA85BA2234F40D1A98F9FB6 /* AvenirNextLTProMedium.otf */; };
+		9F09F7ADCB604369A9736780 /* AvenirNextLTProRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BA3F63539B7C43F2A560C68B /* AvenirNextLTProRegular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Chatting/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Chatting-ChattingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatting-ChattingTests.release.xcconfig"; path = "Target Support Files/Pods-Chatting-ChattingTests/Pods-Chatting-ChattingTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		99B393F21FCE46AE895E57B0 /* AvenirNextLTProBold.otf */ = {isa = PBXFileReference; name = "AvenirNextLTProBold.otf"; path = "../assets/fonts/AvenirNextLTProBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B66B3EACA91144FB86515311 /* AvenirNextLTProDemi.otf */ = {isa = PBXFileReference; name = "AvenirNextLTProDemi.otf"; path = "../assets/fonts/AvenirNextLTProDemi.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3DA85BA2234F40D1A98F9FB6 /* AvenirNextLTProMedium.otf */ = {isa = PBXFileReference; name = "AvenirNextLTProMedium.otf"; path = "../assets/fonts/AvenirNextLTProMedium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BA3F63539B7C43F2A560C68B /* AvenirNextLTProRegular.otf */ = {isa = PBXFileReference; name = "AvenirNextLTProRegular.otf"; path = "../assets/fonts/AvenirNextLTProRegular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				861AC1C747CA42FDAEB342D7 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +156,18 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		861AC1C747CA42FDAEB342D7 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				99B393F21FCE46AE895E57B0 /* AvenirNextLTProBold.otf */,
+				B66B3EACA91144FB86515311 /* AvenirNextLTProDemi.otf */,
+				3DA85BA2234F40D1A98F9FB6 /* AvenirNextLTProMedium.otf */,
+				BA3F63539B7C43F2A560C68B /* AvenirNextLTProRegular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +265,10 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B46C76226CAB4C6D82DED413 /* AvenirNextLTProBold.otf in Resources */,
+				5B0F8D11BD8C41DF98A1DA16 /* AvenirNextLTProDemi.otf in Resources */,
+				41878F49B6764B26953A3050 /* AvenirNextLTProMedium.otf in Resources */,
+				9F09F7ADCB604369A9736780 /* AvenirNextLTProRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
