@@ -5,9 +5,9 @@ import HomeScreen from "./HomeScreen/HomeScreen";
 import ChatScreen from "./ChatScreen/ChatScreen";
 
 export { 
-    CreateAccountScreen, 
-    LoginScreen, 
-    ForgotPasswordScreen, 
-    HomeScreen, 
-    ChatScreen 
+    LoginScreen,
+    CreateAccountScreen,
+    ForgotPasswordScreen,
+    HomeScreen,
+    ChatScreen,
 };
