@@ -27,5 +27,13 @@ const styles = StyleSheet.create({
     fontFamily: typography.XL.bold.fontFamily,
     color: colors.common.black,
   },
+      button: {
+        width: '72%',
+        backgroundColor: '#4C46B4',
+        height: 50,
+        borderColor: '#707070',
+        marginTop: '5%',
+        marginBottom: '2%',
+    }
 });
 export default styles;

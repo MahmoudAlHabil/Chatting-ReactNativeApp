@@ -4,10 +4,10 @@ import ForgotPasswordScreen from './AuthenticationScreens/ForgotPasswordScreen/F
 import HomeScreen from './HomeScreen/HomeScreen';
 import ChatScreen from './ChatScreen/ChatScreen';
 
-export {
-  CreateAccountScreen,
-  LoginScreen,
-  ForgotPasswordScreen,
-  HomeScreen,
-  ChatScreen,
+export { 
+    LoginScreen,
+    CreateAccountScreen,
+    ForgotPasswordScreen,
+    HomeScreen,
+    ChatScreen,
 };

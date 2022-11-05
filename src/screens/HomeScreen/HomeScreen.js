@@ -11,6 +11,8 @@ import styles from './styles';
 import FlatListChat from '../../components/FlatList';
 import SearchBar from '../../components/searchBar';
 const img = require('../../utils/images/girl.jpg');
+import auth from '@react-native-firebase/auth';
+import { Button } from '../../components'
 
 const HomeScreen = () => {
   const [text, setText] = useState();
@@ -26,9 +28,20 @@ const HomeScreen = () => {
       </View>
       <SearchBar value={text} updateSearch={updateSearch} />
       <FlatListChat />
+      <Button
+        onPress={signout}
+        title='Sign Out'
+        wrapperStyle={styles.button} />
     </View>
     // </TouchableWithoutFeedback>
   );
 };
 
-export default HomeScreen;
+const signout = () => {
+  auth()
+    .signOut()
+    .then(() => console.log('User signed out!'));
+  return null;
+}
+
+export default HomeScreen
