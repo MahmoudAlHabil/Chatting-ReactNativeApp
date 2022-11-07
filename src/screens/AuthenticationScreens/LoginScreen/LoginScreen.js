@@ -41,7 +41,7 @@ const LoginScreen = () => {
     },
     onSubmit: values => {
       console.log(values);
-      signin(navigate, formik.values.email, formik.values.password)
+      signin(navigate, formik.values.email, formik.values.password, formik)
     },
     validationSchema,
   });
@@ -60,6 +60,7 @@ const LoginScreen = () => {
             value={formik.values.email}
             onChangeText={formik.handleChange('email')}
             keyboardType='email-address'
+            autoCapitalize='none'
             renderIconLeft={() => <Icon name='mail' size={16} color={'#c6c6c6'} />}
           />
           {formik.errors.email && formik.touched.email && 
@@ -82,6 +83,7 @@ const LoginScreen = () => {
           </TouchableOpacity>
           <Button
             onPress={formik.handleSubmit}
+            disabled={formik.isSubmitting}
             title='Log In'
             wrapperStyle={styles.loginButton}
           />
@@ -99,7 +101,7 @@ const LoginScreen = () => {
   )
 }
 
-const signin = (navigate, email, password) => {
+const signin = (navigate, email, password, formik) => {
 
   auth()
     .signInWithEmailAndPassword(email, password)
@@ -116,6 +118,8 @@ const signin = (navigate, email, password) => {
       }
 
       alert(error);
+    }).finally(() => {
+      formik.setSubmitting(false);
     });
 };
 

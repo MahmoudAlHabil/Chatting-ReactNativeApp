@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styles from './styles';
 
 const Button = (props) => {
@@ -9,6 +9,7 @@ const Button = (props) => {
         textStyle,
         iconWrapperStyle,
         onPress,
+        disabled,
         ...rest
     } = props;
     return (
@@ -17,12 +18,15 @@ const Button = (props) => {
             onPress={onPress}
             style={[styles.container, wrapperStyle]}>
             <View style={{ flexDirection: 'row' }}>
-                <Text style={[styles.text, textStyle]}>{props.title}</Text>
-                {icon && (
-                    <View style={[styles.iconWrapper, iconWrapperStyle]}>
-                        {icon()}
-                    </View>
-                )}
+                {disabled ? (
+                    <ActivityIndicator size='small' color='#fff' />
+                ) : <View>
+                    <Text style={[styles.text, textStyle]}>{props.title}</Text>
+                    {icon &&
+                        <View style={[styles.iconWrapper, iconWrapperStyle]}>
+                            {icon()}
+                        </View>
+                    }</View>}
             </View>
         </TouchableOpacity>
     )

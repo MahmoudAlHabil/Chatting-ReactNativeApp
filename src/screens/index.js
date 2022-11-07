@@ -1,6 +1,6 @@
-import LoginScreen from "./AuthenticationScreens/LoginScreen/LoginScreen";
-import CreateAccountScreen from "./AuthenticationScreens/CreateAccountScreen/CreateAccountScreen";
-import ForgotPasswordScreen from "./AuthenticationScreens/ForgotPasswordScreen/ForgotPasswordScreen";
+import LoginScreen from "./authenticationScreens/LoginScreen/LoginScreen";
+import CreateAccountScreen from "./authenticationScreens/CreateAccountScreen/CreateAccountScreen";
+import ForgotPasswordScreen from "./authenticationScreens/ForgotPasswordScreen/ForgotPasswordScreen";
 import HomeScreen from "./HomeScreen/HomeScreen";
 import ChatScreen from "./ChatScreen/ChatScreen";
 

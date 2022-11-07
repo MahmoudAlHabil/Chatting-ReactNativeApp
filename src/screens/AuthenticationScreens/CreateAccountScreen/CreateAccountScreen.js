@@ -48,36 +48,40 @@ const CreateAccountScreen = () => {
         },
         onSubmit: values => {
             console.log(values);
-            createUser(navigate, email, password)
+            createUser(navigate, values.email, values.password, values.name, formik)
         },
         validationSchema,
     });
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
-                <View style={styles.header}>
-                    <TouchableOpacity
-                        onPress={goBack}
-                        style={styles.wrapperBackIcon}>
-                        <Icon name='arrow-back' size={32} color='black' style={{ fontWeight: 'bold' }} />
-                    </TouchableOpacity>
-                    <Text style={styles.headerText}>Create Account</Text>
-                </View>
-                <View style={styles.WrapperImage}>
-                    <SvgXml xml={icons.createAccountImg} width="220" height="220" />
-                </View>
+        <View style={styles.header}>
+        <TouchableOpacity
+        onPress={goBack}
+        style={styles.wrapperBackIcon}>
+        <Icon name='arrow-back' size={32} color='black' style={{ fontWeight: 'bold' }} />
+        </TouchableOpacity>
+        <Text style={styles.headerText}>Create Account</Text>
+        </View>
+        <ScrollView>
+        <View style={styles.WrapperImage}>
+        <SvgXml xml={icons.createAccountImg} width="220" height="220" />
+        </View>
                 <View style={styles.WrapperForm}>
                     <Input
                         wrapperStyle={styles.input}
                         placeholder='Your name'
+                        onChangeText={formik.handleChange('name')}
+                        value={formik.values.name}
                         renderIconLeft={() => <Icon name='person-sharp' size={16} color={'#c6c6c6'} />} />
                     {formik.errors.name && formik.touched.name &&
                         <Text style={[styles.errorText, styles.errorName]}>{formik.errors.name}</Text>}
                     <Input
                         wrapperStyle={styles.input}
                         placeholder='Email'
-                        onChangeText={val => setEmail(val)}
+                        onChangeText={formik.handleChange('email')}
+                        value={formik.values.email}
+                        autoCapitalize='none'
                         renderIconLeft={() => <Icon name='mail' size={16} color={'#c6c6c6'} />} />
                     {formik.errors.email && formik.touched.email &&
                         <Text style={styles.errorText}>{formik.errors.email}</Text>}
@@ -85,7 +89,8 @@ const CreateAccountScreen = () => {
                         wrapperStyle={styles.input}
                         placeholder='Password'
                         secureTextEntry={!isVisible}
-                        onChangeText={val => setPassword(val)}
+                        onChangeText={formik.handleChange('password')}
+                        value={formik.values.password}
                         renderIconLeft={() => <Icon name='lock-closed' size={16} color={'#c6c6c6'} />}
                         renderIconRight={() => visibleIcon} />
                     {formik.errors.password && formik.touched.password &&
@@ -93,6 +98,7 @@ const CreateAccountScreen = () => {
                     <Button
                         onPress={formik.handleSubmit}
                         title='Sign Up'
+                        disabled={formik.isSubmitting}
                         wrapperStyle={styles.SignupButton} />
                     <TouchableOpacity
                         onPress={() => navigate('LoginScreen')}
@@ -105,9 +111,16 @@ const CreateAccountScreen = () => {
     )
 }
 
-const createUser = (navigate, email, password) => {
+const createUser = (navigate, email, password, name, formik) => {
     auth()
         .createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            auth().currentUser.updateProfile(user, {
+                displayName: name,
+                photoURL: 'https://gravatar.com/avatar/94d45dbdba988afacf30d916e7aaad69?s=200&d=mp&r=x',
+            })
+        })
         .then(() => {
             navigate('HomeStack', { screen: 'HomeScreen' });
         })
@@ -121,6 +134,8 @@ const createUser = (navigate, email, password) => {
             }
 
             alert(error);
+        }).finally(() => {
+            formik.setSubmitting(false);
         });
 };
 

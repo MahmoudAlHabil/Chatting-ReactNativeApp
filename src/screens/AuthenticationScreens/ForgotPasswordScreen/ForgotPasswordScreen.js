@@ -28,7 +28,7 @@ const ForgotPasswordScreen = (props) => {
         },
         onSubmit: values => {
             console.log(values);
-            forgotPassword(navigate, email)
+            forgotPassword(navigate, values.email, formik)
         },
         validationSchema,
     });
@@ -56,12 +56,14 @@ const ForgotPasswordScreen = (props) => {
                         placeholder='Email'
                         onChangeText={formik.handleChange('email')}
                         value={formik.values.email}
+                        autoCapitalize='none'
                         renderIconLeft={() => <Icon name='mail' size={16} color={'#c6c6c6'} />} />
                     {formik.errors.email && formik.touched.email &&
                         <Text style={styles.errorText}>{formik.errors.email}</Text>}
                     <Button
                         onPress={formik.handleSubmit}
                         title='Reset password'
+                        disabled={formik.isSubmitting}
                         wrapperStyle={styles.resetPasswordButton} />
                 </View>
             </ScrollView>
@@ -69,7 +71,7 @@ const ForgotPasswordScreen = (props) => {
     )
 }
 
-const forgotPassword = (navigate, email) => {
+const forgotPassword = (navigate, email, formik) => {
     auth()
         .sendPasswordResetEmail(email)
         .then(() => {
@@ -86,6 +88,8 @@ const forgotPassword = (navigate, email) => {
             }
 
             alert(error);
+        }).finally(() => {
+            formik.setSubmitting(false);
         });
 };
 
